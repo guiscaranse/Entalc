@@ -38,6 +38,6 @@ while(True):
     if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
         continue
     H = Qlib/con
-    print("ΔH = ", H, 'J/mol (%% de erro:', ((H - Horig)/H)*100)
+    print("ΔH = ", H, 'J/mol (%% de erro:', ((H - Horig)/H)*100, "%%)")
     print("Pronto!")
     input("Pressione ENTER para repetir.")
