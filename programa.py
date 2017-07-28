@@ -5,10 +5,10 @@ while(True):
     os.system('cls' if os.name=='nt' else 'clear')
     if(str(input("Você deseja calcular sua constante calorimétrica? (RECOMENDADO) [s/n] ")).lower() == "s"):
         print("# Calculo da constante calorimétrica #")
-        mq = float(input("Insira a massa QUENTE (mq): "))
-        tq = float(input("Insira a variação da água QUENTE (Δtq): "))
-        mf = float(input("Insira a massa FRIA (mf): "))
-        tf = float(input("Insira a variação da água FRIA (Δtf): "))
+        mq = float(input("Insira a massa QUENTE (mq em Kg): "))
+        tq = float(input("Insira a variação da água QUENTE (Δtq em °C): "))
+        mf = float(input("Insira a massa FRIA (mf em Kg): "))
+        tf = float(input("Insira a variação da água FRIA (Δtf em °C): "))
         C = float(-1*(((mq*4.18*tq) - (mf*4.18*tf))/tf))
         print("Sua constante calorimétrica (C) será:", C, "J/°C")
         if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
@@ -19,8 +19,8 @@ while(True):
     if(str(input("Você deseja calcular a quantidade de calor liberada pela água? (RECOMENDADO) [s/n] ")).lower() == "s"):
         while(True):
             print("# Calculo da quantidade de calor liberada pela água #")
-            ma = float(input("Insira a massa da água: "))
-            t = float(input("Insira a variação de temperatura: "))
+            ma = float(input("Insira a massa da água em Kg: "))
+            t = float(input("Insira a variação de temperatura em °C: "))
             Qlib = 4.18*ma*t + C*t
             print("Sua quantidade de calor liberada pela água (Q) será:", Qlib, "J")
             if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
@@ -28,7 +28,7 @@ while(True):
             else:
                 break
     else:
-        Qlib = float(input("Insira a quantidade de calor liberada pela água (Q): "))
+        Qlib = float(input("Insira a quantidade de calor liberada pela água (Q em J): "))
     os.system('cls' if os.name=='nt' else 'clear')
     con = float(input("Qual a concentração da substância em questão (em mol/L)? "))
     os.system('cls' if os.name=='nt' else 'clear')
@@ -38,6 +38,6 @@ while(True):
     if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
         continue
     H = Qlib/con
-    print("ΔH = ", H, '(%% de erro:', ((H - Horig)/H)*100)
+    print("ΔH = ", H, 'J/mol (%% de erro:', ((H - Horig)/H)*100)
     print("Pronto!")
     input("Pressione ENTER para repetir.")
