@@ -1,15 +1,31 @@
 import os
 mq, tq, mf, tf, C, Qlib, H, Horig = (0,)*8
+os.system('cls' if os.name=='nt' else 'clear')
+print("### ")
+print("###  Entalc")
+print("### ")
+print("## Bem vindo ao Entalc")
+print("## Entalc é um programa desenvolvido no IFBA Campus Porto Seguro")
+print("## Turma de 3° TI 2017")
+print(" ")
+print(" Come ele você poderá realizar o cálculo da constante calorimétrica, calor liberado e Delta H.")
+print(" ")
+print(" Licença presente no arquivo 'LICENSE' (GPLv3)")
+print(" ")
+print(" Confira o código-fonte aqui: ")
+print("   -> https://github.com/guiscaranse/entalc")
+print(" ")
+input("Pressione ENTER para começar.")
 while(True):
     os.system('cls' if os.name=='nt' else 'clear')
-    Horig = float(input("Por favor insira o ΔH (literatura) para a experiência que você está realizando: "))
+    Horig = float(input("Por favor insira o Delta H (literatura) para a experiência que você está realizando: "))
     os.system('cls' if os.name=='nt' else 'clear')
     if(str(input("Você deseja calcular sua constante calorimétrica? (RECOMENDADO) [s/n] ")).lower() == "s"):
         print("# Calculo da constante calorimétrica #")
         mq = float(input("Insira a massa QUENTE (mq em Kg): "))
-        tq = float(input("Insira a variação da água QUENTE (Δtq em °C): "))
+        tq = float(input("Insira a variação da água QUENTE (Delta tq em °C): "))
         mf = float(input("Insira a massa FRIA (mf em Kg): "))
-        tf = float(input("Insira a variação da água FRIA (Δtf em °C): "))
+        tf = float(input("Insira a variação da água FRIA (Delta tf em °C): "))
         C = float(1000*(((mq*4.18*tq) - (mf*4.18*tf))/tf))
         print("Sua constante calorimétrica (C) será:", C, "J/°C")
         if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
@@ -39,6 +55,6 @@ while(True):
     if(str(input("Você está certo dos seus valores? [s/n] ")).lower() == "n"):
         continue
     H = (Qlib/1000)/con
-    print("ΔH = ", H, 'KJ/mol (% de erro:', ((H - Horig)/H)*100, "%)")
+    print("Delta H = ", H, 'KJ/mol (% de erro:', ((H - Horig)/H)*100, "%)")
     print("Pronto!")
     input("Pressione ENTER para repetir.")
